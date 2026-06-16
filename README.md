@@ -4,17 +4,18 @@
 
 ## Структура
 
-- `js/conversion` - перевод тернарных выражений в `if...else` и `switch`.
-- `js/calculator` - примитивный калькулятор на HTML и JavaScript.
+- `conversion` - перевод тернарных выражений в `if...else` и `switch`.
+- `calculator` - примитивный калькулятор на HTML и JavaScript.
 
 ## Проверка JavaScript
 
 ```bash
-node js/conversion/check.js
+node conversion/Tern1.js
+node conversion/Tern2.js
 ```
 
 Калькулятор можно открыть в браузере через файл:
 
 ```text
-js/calculator/index.html
+calculator/h.html
 ```
