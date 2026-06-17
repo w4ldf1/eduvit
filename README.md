@@ -12,6 +12,7 @@
 - `homework4` - задание по генераторам, файлам и декораторам Python.
 - `homework5` - задание по библиотекам и импортам Python.
 - `homework6` - задание по тестированию Python.
+- `graphic.py` - построение графика функции через `numpy` и `matplotlib`.
 
 ## Проверка JavaScript
 
@@ -77,4 +78,12 @@ python3 homework5/task4.py
 python3 homework6/task1.py
 python3 homework6/task2.py
 python3 homework6/task3.py
+```
+
+## Проверка графика
+
+```bash
+python3.11 -m venv .venv
+.venv/bin/pip install numpy matplotlib
+.venv/bin/python graphic.py
 ```
