@@ -9,6 +9,7 @@
 - `homework1` - первое домашнее задание по Python.
 - `homework2` - задание по структурам данных Python.
 - `homework3` - задание по функциям, типизации и классам Python.
+- `homework4` - задание по генераторам, файлам и декораторам Python.
 
 ## Проверка JavaScript
 
@@ -48,4 +49,13 @@ python3 homework3/task1.py
 python3 homework3/task2.py
 python3 homework3/task3.py
 python3 homework3/task4.py
+```
+
+## Проверка Python homework4
+
+```bash
+python3 homework4/task1.py
+python3 homework4/task2.py
+python3 homework4/task3.py
+python3 homework4/task4.py
 ```
