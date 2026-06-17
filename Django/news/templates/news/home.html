@@ -1,0 +1,36 @@
+{% extends "news/base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Новостной портал</p>
+      <h1>Новости учебной организации</h1>
+      <p>На сайте собраны объявления, события и материалы для студентов и преподавателей.</p>
+    </div>
+    <a class="primary-link" href="{% url 'news_list' %}">Все новости</a>
+  </section>
+
+  <section class="section-head">
+    <h2>Последние новости</h2>
+  </section>
+
+  <div class="cards">
+    {% for item in latest_news %}
+      <article class="card">
+        {% if item.image %}
+          <img src="{{ item.image }}" alt="{{ item.title }}">
+        {% endif %}
+        <div class="card-content">
+          <span>{{ item.publication_date|date:"d.m.Y H:i" }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.content|truncatewords:24 }}</p>
+          <a href="{{ item.get_absolute_url }}">Подробнее</a>
+        </div>
+      </article>
+    {% empty %}
+      <p class="empty">Новостей пока нет.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "news/base.html" %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+  <section class="content-panel auth-panel">
+    <h1>Регистрация</h1>
+    <form class="form-card" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+  </section>
+{% endblock %}

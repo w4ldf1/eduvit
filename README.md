@@ -14,6 +14,7 @@
 - `homework6` - задание по тестированию Python.
 - `graphic.py` - построение графика функции через `numpy` и `matplotlib`.
 - `users` - React-приложение для сопоставления пользователей и постов.
+- `Django` - сайт организации с новостями, комментариями и авторизацией.
 
 ## Проверка JavaScript
 
@@ -95,4 +96,23 @@ python3.11 -m venv .venv
 cd users
 npm install
 npm run dev
+```
+
+## Проверка Django
+
+```bash
+cd Django
+../.venv/bin/pip install -r requirements.txt
+../.venv/bin/python manage.py migrate
+../.venv/bin/python manage.py seed_demo
+../.venv/bin/python manage.py runserver
+```
+
+После `seed_demo` доступны пользователи `admin` / `admin12345` и `student` / `student12345`.
+
+Тесты:
+
+```bash
+cd Django
+../.venv/bin/python manage.py test
 ```

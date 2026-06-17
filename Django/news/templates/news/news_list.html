@@ -1,0 +1,38 @@
+{% extends "news/base.html" %}
+
+{% block title %}Новости{% endblock %}
+
+{% block content %}
+  <section class="section-head list-head">
+    <div>
+      <p class="eyebrow">Лента</p>
+      <h1>Новости</h1>
+    </div>
+    <form class="filters" method="get">
+      <input type="search" name="q" value="{{ query }}" placeholder="Поиск по названию">
+      <select name="sort">
+        <option value="new" {% if sort == "new" %}selected{% endif %}>Сначала новые</option>
+        <option value="old" {% if sort == "old" %}selected{% endif %}>Сначала старые</option>
+      </select>
+      <button type="submit">Показать</button>
+    </form>
+  </section>
+
+  <div class="news-list">
+    {% for item in news %}
+      <article class="news-row">
+        {% if item.image %}
+          <img src="{{ item.image }}" alt="{{ item.title }}">
+        {% endif %}
+        <div>
+          <span>{{ item.publication_date|date:"d.m.Y H:i" }} · {{ item.author.username }}</span>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.content|truncatewords:32 }}</p>
+          <a href="{{ item.get_absolute_url }}">Открыть новость</a>
+        </div>
+      </article>
+    {% empty %}
+      <p class="empty">По выбранным условиям новостей нет.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

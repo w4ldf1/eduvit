@@ -1,0 +1,25 @@
+{% extends "news/base.html" %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block content %}
+  <section class="content-panel">
+    <p class="eyebrow">Профиль</p>
+    <h1>{{ user.username }}</h1>
+    <p>{{ user.email }}</p>
+    <a class="primary-link" href="{% url 'password_change' %}">Сменить пароль</a>
+  </section>
+
+  <section class="comments">
+    <h2>Ваши комментарии</h2>
+    {% for comment in comments %}
+      <article class="comment">
+        <strong>{{ comment.news.title }}</strong>
+        <span>{{ comment.created_at|date:"d.m.Y H:i" }}</span>
+        <p>{{ comment.text }}</p>
+      </article>
+    {% empty %}
+      <p class="empty">Вы пока не оставляли комментариев.</p>
+    {% endfor %}
+  </section>
+{% endblock %}

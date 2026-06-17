@@ -1,0 +1,15 @@
+{% extends "news/base.html" %}
+
+{% block title %}Удаление новости{% endblock %}
+
+{% block content %}
+  <section class="content-panel">
+    <h1>Удалить новость</h1>
+    <p>Вы действительно хотите удалить новость "{{ news_item.title }}"?</p>
+    <form class="inline-actions" method="post">
+      {% csrf_token %}
+      <button type="submit">Удалить</button>
+      <a href="{{ news_item.get_absolute_url }}">Отмена</a>
+    </form>
+  </section>
+{% endblock %}

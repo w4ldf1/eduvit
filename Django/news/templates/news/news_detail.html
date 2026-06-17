@@ -1,0 +1,45 @@
+{% extends "news/base.html" %}
+
+{% block title %}{{ news_item.title }}{% endblock %}
+
+{% block content %}
+  <article class="detail">
+    {% if news_item.image %}
+      <img class="detail-image" src="{{ news_item.image }}" alt="{{ news_item.title }}">
+    {% endif %}
+    <p class="eyebrow">{{ news_item.publication_date|date:"d.m.Y H:i" }} · {{ news_item.author.username }}</p>
+    <h1>{{ news_item.title }}</h1>
+    <p>{{ news_item.content|linebreaksbr }}</p>
+
+    {% if user.is_staff or user.is_superuser %}
+      <div class="actions">
+        <a href="{% url 'news_update' news_item.pk %}">Редактировать</a>
+        <a href="{% url 'news_delete' news_item.pk %}">Удалить</a>
+      </div>
+    {% endif %}
+  </article>
+
+  <section class="comments">
+    <h2>Комментарии</h2>
+
+    {% for comment in comments %}
+      <article class="comment">
+        <strong>{{ comment.user.username }}</strong>
+        <span>{{ comment.created_at|date:"d.m.Y H:i" }}</span>
+        <p>{{ comment.text }}</p>
+      </article>
+    {% empty %}
+      <p class="empty">Комментариев пока нет.</p>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+      <form class="form-card" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить комментарий</button>
+      </form>
+    {% else %}
+      <p><a href="{% url 'login' %}">Войдите</a>, чтобы оставить комментарий.</p>
+    {% endif %}
+  </section>
+{% endblock %}
