@@ -13,6 +13,7 @@
 - `homework5` - задание по библиотекам и импортам Python.
 - `homework6` - задание по тестированию Python.
 - `graphic.py` - построение графика функции через `numpy` и `matplotlib`.
+- `users` - React-приложение для сопоставления пользователей и постов.
 
 ## Проверка JavaScript
 
@@ -86,4 +87,12 @@ python3 homework6/task3.py
 python3.11 -m venv .venv
 .venv/bin/pip install numpy matplotlib
 .venv/bin/python graphic.py
+```
+
+## Проверка React users
+
+```bash
+cd users
+npm install
+npm run dev
 ```
