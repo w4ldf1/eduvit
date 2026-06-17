@@ -11,19 +11,84 @@ function originalTern2(a) {
 }
 
 function tern2IfElse(a) {
-  // TODO: rewrite originalTern2 using if...else only.
-  throw new Error("tern2IfElse is not implemented");
+  let message = "";
+
+  if (a > 10) {
+    message += "a is bigger than 10";
+  } else {
+    message += "a is less than or equal to 10 ";
+
+    if (a === 5) {
+      message += "an example of a special case";
+    }
+  }
+
+  if (a === 15) {
+    message += "but a is not 15";
+  }
+
+  if (a > 5) {
+    message += "and a is greater than 5";
+  } else {
+    message += "and a is less than or equal to 5 ";
+  }
+
+  if (a % 2) {
+    message += " and a is odd";
+  } else {
+    message += " and a is even ";
+  }
+
+  return message;
 }
 
 function tern2Switch(a) {
-  // TODO: rewrite originalTern2 using switch.
-  throw new Error("tern2Switch is not implemented");
+  let message = "";
+
+  switch (true) {
+    case a > 10:
+      message += "a is bigger than 10";
+      break;
+    default:
+      message += "a is less than or equal to 10 ";
+
+      switch (a) {
+        case 5:
+          message += "an example of a special case";
+          break;
+      }
+  }
+
+  switch (a) {
+    case 15:
+      message += "but a is not 15";
+      break;
+  }
+
+  switch (true) {
+    case a > 5:
+      message += "and a is greater than 5";
+      break;
+    default:
+      message += "and a is less than or equal to 5 ";
+  }
+
+  switch (a % 2) {
+    case 0:
+      message += " and a is even ";
+      break;
+    default:
+      message += " and a is odd";
+  }
+
+  return message;
 }
 
 function demoTern2() {
   const a = Math.floor(Math.random() * 20) + 1;
 
   console.log(`a = ${a}`);
+  console.log(`ternary: ${originalTern2(a)}`);
   console.log(`if...else: ${tern2IfElse(a)}`);
   console.log(`switch: ${tern2Switch(a)}`);
 }
