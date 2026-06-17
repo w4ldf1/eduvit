@@ -1,4 +1,4 @@
-function originalTern2(a) {
+function manyChecks(a) {
   return (
     (a > 10
       ? "a is bigger than 10"
@@ -10,96 +10,76 @@ function originalTern2(a) {
   );
 }
 
-function tern2IfElse(a) {
-  let message = "";
+let a = Math.floor(Math.random() * 20) + 1;
+console.log("a =", a);
 
-  if (a > 10) {
-    message += "a is bigger than 10";
-  } else {
-    message += "a is less than or equal to 10 ";
+let ifElseResult = "";
 
-    if (a === 5) {
-      message += "an example of a special case";
+if (a > 10) {
+  ifElseResult += "a is bigger than 10";
+} else {
+  ifElseResult += "a is less than or equal to 10 ";
+
+  if (a === 5) {
+    ifElseResult += "an example of a special case";
+  }
+}
+
+if (a === 15) {
+  ifElseResult += "but a is not 15";
+}
+
+if (a > 5) {
+  ifElseResult += "and a is greater than 5";
+} else {
+  ifElseResult += "and a is less than or equal to 5 ";
+}
+
+if (a % 2) {
+  ifElseResult += " and a is odd";
+} else {
+  ifElseResult += " and a is even ";
+}
+
+console.log("if...else:", ifElseResult);
+
+let switchResult = "";
+
+switch (true) {
+  case a > 10:
+    switchResult += "a is bigger than 10";
+    break;
+  default:
+    switchResult += "a is less than or equal to 10 ";
+
+    switch (a) {
+      case 5:
+        switchResult += "an example of a special case";
+        break;
     }
-  }
-
-  if (a === 15) {
-    message += "but a is not 15";
-  }
-
-  if (a > 5) {
-    message += "and a is greater than 5";
-  } else {
-    message += "and a is less than or equal to 5 ";
-  }
-
-  if (a % 2) {
-    message += " and a is odd";
-  } else {
-    message += " and a is even ";
-  }
-
-  return message;
 }
 
-function tern2Switch(a) {
-  let message = "";
-
-  switch (true) {
-    case a > 10:
-      message += "a is bigger than 10";
-      break;
-    default:
-      message += "a is less than or equal to 10 ";
-
-      switch (a) {
-        case 5:
-          message += "an example of a special case";
-          break;
-      }
-  }
-
-  switch (a) {
-    case 15:
-      message += "but a is not 15";
-      break;
-  }
-
-  switch (true) {
-    case a > 5:
-      message += "and a is greater than 5";
-      break;
-    default:
-      message += "and a is less than or equal to 5 ";
-  }
-
-  switch (a % 2) {
-    case 0:
-      message += " and a is even ";
-      break;
-    default:
-      message += " and a is odd";
-  }
-
-  return message;
+switch (a) {
+  case 15:
+    switchResult += "but a is not 15";
+    break;
 }
 
-function demoTern2() {
-  const a = Math.floor(Math.random() * 20) + 1;
-
-  console.log(`a = ${a}`);
-  console.log(`ternary: ${originalTern2(a)}`);
-  console.log(`if...else: ${tern2IfElse(a)}`);
-  console.log(`switch: ${tern2Switch(a)}`);
+switch (true) {
+  case a > 5:
+    switchResult += "and a is greater than 5";
+    break;
+  default:
+    switchResult += "and a is less than or equal to 5 ";
 }
 
-module.exports = {
-  originalTern2,
-  tern2IfElse,
-  tern2Switch,
-  demoTern2,
-};
-
-if (require.main === module) {
-  demoTern2();
+switch (a % 2) {
+  case 0:
+    switchResult += " and a is even ";
+    break;
+  default:
+    switchResult += " and a is odd";
 }
+
+console.log("switch:", switchResult);
+console.log("ternary:", manyChecks(a));
