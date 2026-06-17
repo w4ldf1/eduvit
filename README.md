@@ -11,6 +11,7 @@
 - `homework3` - задание по функциям, типизации и классам Python.
 - `homework4` - задание по генераторам, файлам и декораторам Python.
 - `homework5` - задание по библиотекам и импортам Python.
+- `homework6` - задание по тестированию Python.
 
 ## Проверка JavaScript
 
@@ -68,4 +69,12 @@ python3 homework5/task1.py
 python3 homework5/task2.py
 python3 homework5/task3.py
 python3 homework5/task4.py
+```
+
+## Проверка Python homework6
+
+```bash
+python3 homework6/task1.py
+python3 homework6/task2.py
+python3 homework6/task3.py
 ```
